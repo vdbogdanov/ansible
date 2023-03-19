@@ -1,0 +1,4 @@
+---
+pki_certificate_pass: "{{ lookup('env', 'OVPN_PKI_CERTIFICATE_PASS') }}"
+client_name:          "{{ lookup('env', 'OVPN_CLIENT_NAME') }}"
+client_pass:          "{{ lookup('env', 'OVPN_CLIENT_PASS') }}"

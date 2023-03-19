@@ -1,0 +1,25 @@
+version: '3'
+services:
+  gitlab:
+    image: gitlab/gitlab-ce
+    restart: always
+    container_name: gitlab
+    hostname: gitlab.${DOMAIN}
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.${DOMAIN}:80'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2224
+    networks:
+      - default
+    ports:
+      - "8082:80"
+      - "2224:22"
+    volumes:
+      - /srv/gitlab/config:/etc/gitlab
+      - /srv/gitlab/logs:/var/log/gitlab
+      - /srv/gitlab/data:/var/opt/gitlab
+    shm_size: 256m
+
+networks:
+  default:
+    name: common-network

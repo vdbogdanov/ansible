@@ -1,0 +1,21 @@
+version: '3'
+services:  
+  nginx:
+    image: nginx
+    restart: always
+    container_name: nginx
+    environment:
+      - DOMAIN=${DOMAIN}
+      - NGINX_ENVSUBST_OUTPUT_DIR=/etc/nginx
+    networks:
+      - default
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./templates:/etc/nginx/templates
+
+networks:
+  default:
+    name: common-network

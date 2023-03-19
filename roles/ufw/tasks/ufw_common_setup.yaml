@@ -1,0 +1,20 @@
+---
+- name: Install ufw
+  apt:
+    name: ufw
+    state: latest
+
+- name: Reset ufw
+  ufw:
+    state: reset
+
+- name: Common setup ufw
+  command: "ufw {{ item }}"
+  loop:
+    - default deny incoming
+    - default allow outgoing
+    - allow 22
+
+- name: Enable ufw
+  ufw:
+    state: enabled

@@ -1,0 +1,16 @@
+---
+- name: Create directory
+  file:
+    path: /etc/docker
+    state: directory
+
+- name: Turn off iptables in docker config
+  copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "iptables": false
+      }
+
+- name: Reboot server for activate iptables_off
+  reboot:

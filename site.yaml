@@ -1,0 +1,53 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Include apt role
+      include_role:
+        name: apt
+      tags: apt
+
+    - name: Include ssh role
+      include_role:
+        name: ssh
+      tags: ssh
+
+    - name: Include ufw role
+      include_role:
+        name: ufw
+      tags: ufw
+
+    - name: Include docker role
+      include_role:
+        name: docker
+      tags: docker
+
+    - name: Include openvpn role
+      include_role:
+        name: openvpn
+      tags: openvpn
+
+    - name: Include nginx role
+      include_role:
+        name: nginx
+      tags: nginx
+
+    - name: Include gitlab role
+      include_role:
+        name: gitlab
+      tags: gitlab
+
+    - name: Include pgadmin role
+      include_role:
+        name: pgadmin
+      tags: pgadmin
+
+    - name: Include cmdbuild role
+      include_role:
+        name: cmdbuild
+      tags: cmdbuild
+    
+    - name: Include vcenter role
+      include_role:
+        name: vcenter
+      tags: vcenter

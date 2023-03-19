@@ -1,0 +1,15 @@
+version: '3'
+services:
+  vcsim:
+    image: nimmis/vcsim
+    restart: always
+    container_name: vcsim
+    command: --vcenter --vm 20
+    networks:
+      - default
+    ports:
+      - "8084:443"
+
+networks:
+  default:
+    name: common-network

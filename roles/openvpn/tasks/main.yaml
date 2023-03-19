@@ -1,0 +1,16 @@
+---
+- name: Import ovpn_ufw task
+  import_tasks: ovpn_ufw.yaml
+  tags: ovpn_ufw
+
+- name: Import ovpn_setup task
+  import_tasks: ovpn_setup.yaml
+  tags: ovpn_setup
+
+- name: Import ovpn_gencerts task
+  import_tasks: ovpn_gencerts.yaml
+  tags: ovpn_gencerts
+
+- name: Import ovpn_genprofile task
+  import_tasks: ovpn_genprofile.yaml
+  tags: ovpn_genprofile

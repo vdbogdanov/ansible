@@ -1,0 +1,4 @@
+---
+- name: Import ssh_setup task
+  import_tasks: ssh_setup.yaml
+  tags: ssh_setup

@@ -1,0 +1,44 @@
+version: '3'
+services:
+  cmdbuild:
+    image: trepz/cmdbuild:3.1.1    
+    restart: always
+    container_name: cmdbuild
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=cmdbuild
+      - DB_TYPE=ready2use_demo
+      - CMDBUILD_USERNAME=cmdbuild
+      - CMDBUILD_PASSWORD=cmdbuild
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - default
+    ports:  
+      - "8081:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: mdillon/postgis:9.5-alpine    
+    restart: always
+    container_name: cmdbuild_db
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - default
+    expose:
+      - "5432"
+    volumes:
+      - /srv/cmdbuild_db/data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  default:
+    name: common-network

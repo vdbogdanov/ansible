@@ -1,0 +1,4 @@
+---
+- name: Import apt_upgrade task
+  import_tasks: apt_upgrade.yaml
+  tags: apt_upgrade

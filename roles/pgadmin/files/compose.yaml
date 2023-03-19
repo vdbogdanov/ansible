@@ -1,0 +1,17 @@
+version: '3'
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    networks:
+      - default
+    ports:
+      - "8083:80"
+
+networks:
+  default:
+    name: common-network

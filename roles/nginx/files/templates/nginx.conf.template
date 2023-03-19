@@ -1,0 +1,97 @@
+events {
+}
+
+http {
+
+	# proxy for gitlab
+    server {
+        listen 80;
+		listen [::]:80;
+
+        server_name gitlab.${DOMAIN};
+
+		location / {
+			return 301 https://$server_name$request_uri;
+		}
+    }
+
+	server {
+        listen 443 ssl;
+		listen [::]:443 ssl;
+
+        server_name gitlab.${DOMAIN};
+
+        ssl_certificate /etc/letsencrypt/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/privkey.pem;
+
+		location / {
+        	proxy_pass http://gitlab:80;
+
+			proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+           	proxy_set_header X-Forwarded-Proto https;
+           	proxy_set_header X-Forwarded-Protocol https;
+			proxy_set_header X-Url-Scheme https;
+			proxy_set_header X-Forwarded-Ssl on;
+
+			proxy_read_timeout 90;
+			client_max_body_size 0;
+			gzip off;
+			proxy_http_version 1.1;
+    	}
+	}	
+
+	# proxy for pgadmin
+    server {
+        listen 80;
+		listen [::]:80;
+
+        server_name pgadmin.${DOMAIN};
+
+		location / {
+			return 301 https://$server_name$request_uri;
+		}
+    }
+
+	server {
+        listen 443 ssl;
+		listen [::]:443 ssl;
+
+        server_name pgadmin.${DOMAIN};
+
+        ssl_certificate /etc/letsencrypt/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/privkey.pem;
+
+		location / {
+			proxy_pass http://pgadmin:80;
+		}
+	}
+
+	# proxy for vcsim
+    server {
+        listen 80;
+		listen [::]:80;
+
+        server_name vcenter.${DOMAIN};
+
+		location / {
+			return 301 https://$server_name$request_uri;
+		}
+    }
+
+	server {
+        listen 443 ssl;
+		listen [::]:443 ssl;
+
+        server_name vcenter.${DOMAIN};
+
+        ssl_certificate /etc/letsencrypt/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/privkey.pem;
+
+		location / {
+			proxy_pass https://vcsim:443;
+		}
+	}
+}

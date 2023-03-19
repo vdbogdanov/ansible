@@ -1,0 +1,9 @@
+---
+- name: Setup ufw
+  ufw:
+    rule: allow
+    port: "8084"
+
+- name: Restart ufw
+  ufw:
+    state: reloaded

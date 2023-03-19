@@ -1,0 +1,18 @@
+---
+- name: Create service directories
+  file:
+    path: ~/pgadmin
+    state: directory
+    
+- name: Copy docker compose file
+  copy:
+    src: files/compose.yaml
+    dest: ~/pgadmin/compose.yaml
+
+- name: Start docker compose file
+  command: docker compose up -d
+  environment: 
+    PGADMIN_EMAIL: "{{ pgadmin_email }}"
+    PGADMIN_PASSWORD: "{{ pgadmin_password }}"
+  args:
+    chdir: ~/pgadmin

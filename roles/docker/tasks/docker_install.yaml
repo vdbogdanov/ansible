@@ -1,0 +1,24 @@
+---
+- name: Add docker gpg apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add docker repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: Install docker
+  apt:
+    name:
+      - docker-ce
+      - docker-compose-plugin
+    state: latest
+    update_cache: true
+
+- name: Start docker service
+  service:
+    name: docker
+    state: started
+    enabled: true

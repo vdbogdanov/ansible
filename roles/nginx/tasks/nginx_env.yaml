@@ -1,0 +1,5 @@
+---
+- name: Add env vars to .bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: export DOMAIN="{{ domain }}"
