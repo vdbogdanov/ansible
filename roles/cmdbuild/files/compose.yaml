@@ -8,7 +8,7 @@ services:
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_NAME=cmdbuild
-      - DB_TYPE=ready2use_demo
+      - DB_TYPE=empty
       - CMDBUILD_USERNAME=cmdbuild
       - CMDBUILD_PASSWORD=cmdbuild
       - POSTGRES_USERNAME=postgres
