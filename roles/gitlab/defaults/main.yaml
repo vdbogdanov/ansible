@@ -1,2 +1,2 @@
 ---
-domain: "{{ lookup('env', 'DOMAIN') }}"
+domain: "{{ lookup('env', 'DOMAIN', default='example.com') }}"

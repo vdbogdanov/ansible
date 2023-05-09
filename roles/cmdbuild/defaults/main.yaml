@@ -1,2 +1,2 @@
 ---
-postgres_password: "{{ lookup('env', 'POSTGRES_PASSWORD') }}"
+postgres_password: "{{ lookup('env', 'POSTGRES_PASSWORD', default='admin') }}"

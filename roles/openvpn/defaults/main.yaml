@@ -1,4 +1,4 @@
 ---
-pki_certificate_pass: "{{ lookup('env', 'OVPN_PKI_CERTIFICATE_PASS') }}"
-client_name:          "{{ lookup('env', 'OVPN_CLIENT_NAME') }}"
-client_pass:          "{{ lookup('env', 'OVPN_CLIENT_PASS') }}"
+pki_certificate_pass: "{{ lookup('env', 'OVPN_PKI_CERTIFICATE_PASS', default='admin') }}"
+client_name:          "{{ lookup('env', 'OVPN_CLIENT_NAME', default='client') }}"
+client_pass:          "{{ lookup('env', 'OVPN_CLIENT_PASS', default='admin') }}"
