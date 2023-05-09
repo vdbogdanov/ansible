@@ -2,17 +2,25 @@
 
 ## Description
 
-Collection of ansible roles for configuring servers and deploying some services as Docker container by Docker Compose. Every role page has a more detailed description.
+This repository contains ansible roles for automating server configuration using some utilities and service deployment.
+
+The algorithm of using roles for utilities is very simple, they automate the process as if you enter commands in the console.  But the algorithm of using roles for the deployment of services requires some explanation:
+```
+1. Configuring the server to use the service (for example, installing the necessary packages)
+2. Uploading the docker compose file to the server and running it
+3. The ports on which containers are launched are indicated next to the name of the service
+```
 
 ## List of roles
 
 - Services
-    - [openvpn](/roles/openvpn/)
-    - [nginx](/roles/nginx/)
-    - [gitlab](/roles/gitlab/)
-    - [pgadmin](/roles/pgadmin/)
-    - [cmdbuild](/roles/cmdbuild)
-    - [vcsim](/roles/cmdbuild)
+    - [openvpn (port 1194)](/roles/openvpn/)
+    - [nginx (ports 80, 443)](/roles/nginx/)
+    - [cmdbuild (port 8081)](/roles/cmdbuild)
+    - [gitlab (ports 8082, 2224)](/roles/gitlab/)
+    - [pgadmin (port 8083)](/roles/pgadmin/)
+    - [vcenter (port 8084)](/roles/cmdbuild)
+
 - Tools
     - [apt](/roles/apt/)
     - [ssh](/roles/ssh/)
