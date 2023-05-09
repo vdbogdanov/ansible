@@ -1,13 +1,13 @@
 # ansible-roles
 
+## Table of Contents
+- [Description](#description)
+- [List of roles](#list-of-roles)
+- [Usage](#usage)
+
 ## Description
 
 Collection of ansible roles for configuring servers and deploying some services as Docker container by Docker Compose. Every role page has a more detailed description.
-
-## Table of Contents
-
-- [List of roles](#list-of-roles)
-- [Usage](#usage)
 
 ## List of roles
 
