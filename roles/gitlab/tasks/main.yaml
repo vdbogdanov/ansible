@@ -1,8 +1,4 @@
 ---
-- name: Import gitlab_env task
-  import_tasks: gitlab_env.yaml
-  tags: gitlab_env
-
 - name: Import gitlab_setup task
   import_tasks: gitlab_setup.yaml
   tags: gitlab_setup

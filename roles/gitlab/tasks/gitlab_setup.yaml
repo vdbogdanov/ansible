@@ -1,4 +1,9 @@
 ---
+- name: Add env vars to .bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: export DOMAIN="{{ domain }}"
+    
 - name: Create service directories
   file:
     path: ~/gitlab

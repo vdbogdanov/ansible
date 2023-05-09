@@ -1,4 +1,12 @@
 ---
+- name: Add env vars to .bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: "{{ item }}"
+  loop:
+    - export PGADMIN_EMAIL="{{ pgadmin_email }}"
+    - export PGADMIN_PASSWORD="{{ pgadmin_password }}"
+
 - name: Create service directories
   file:
     path: ~/pgadmin

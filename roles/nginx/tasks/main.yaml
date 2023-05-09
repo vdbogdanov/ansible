@@ -1,8 +1,4 @@
 ---
-- name: Import nginx_env task
-  import_tasks: nginx_env.yaml
-  tags: nginx_env
-
-- name: Import nginx_setup task
-  import_tasks: nginx_setup.yaml
-  tags: nginx_setup
+- name: Import nginx_reverse_proxy task
+  import_tasks: nginx_reverse_proxy.yaml
+  tags: nginx_reverse_proxy

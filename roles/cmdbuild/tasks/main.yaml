@@ -1,8 +1,4 @@
 ---
-- name: Import cmdbuild_env task
-  import_tasks: cmdbuild_env.yaml
-  tags: cmdbuild_env
-
 - name: Import cmdbuild_setup task
   import_tasks: cmdbuild_setup.yaml
   tags: cmdbuild_setup

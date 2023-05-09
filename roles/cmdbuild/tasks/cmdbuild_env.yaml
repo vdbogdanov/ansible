@@ -1,5 +1,0 @@
----
-- name: Add env vars to .bashrc
-  lineinfile:
-    dest: ~/.bashrc
-    line: export POSTGRES_PASSWORD="{{ postgres_password }}"
