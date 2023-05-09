@@ -1,8 +1,4 @@
 ---
-- name: Import pgadmin_ufw task
-  import_tasks: pgadmin_ufw.yaml
-  tags: pgadmin_ufw
-
 - name: Import pgadmin_env task
   import_tasks: pgadmin_env.yaml
   tags: pgadmin_env

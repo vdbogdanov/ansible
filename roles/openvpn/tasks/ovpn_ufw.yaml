@@ -1,9 +1,0 @@
----
-- name: Setup ufw
-  ufw:
-    rule: allow
-    port: "1194"
-
-- name: Restart ufw
-  ufw:
-    state: reloaded

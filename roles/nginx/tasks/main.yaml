@@ -1,8 +1,4 @@
 ---
-- name: Import nginx_ufw task
-  import_tasks: nginx_ufw.yaml
-  tags: nginx_ufw
-
 - name: Import nginx_env task
   import_tasks: nginx_env.yaml
   tags: nginx_env

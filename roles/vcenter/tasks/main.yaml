@@ -1,8 +1,4 @@
 ---
-- name: Import vcenter_ufw task
-  import_tasks: vcenter_ufw.yaml
-  tags: vcenter_ufw
-
 - name: Import vcenter_setup task
   import_tasks: vcenter_setup.yaml
   tags: vcenter_setup
