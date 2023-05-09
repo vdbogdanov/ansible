@@ -3,8 +3,6 @@
 	- [Description](#description)
 	- [List of roles](#list-of-roles)
 	- [Usage](#usage)
-			- [Initialization](#initialization)
-			- [Playbook](#playbook)
 
 ## Description
 
