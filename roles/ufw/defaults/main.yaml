@@ -1,2 +1,2 @@
 ---
-ovpn_server_ip: "{{ lookup('env', 'OVPN_SERVER_IP') }}"
+ovpn_server_ip: "{{ lookup('env', 'OVPN_SERVER_IP', default='127.0.0.1') }}"
