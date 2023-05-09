@@ -26,7 +26,7 @@ Collection of ansible roles for configuring servers and deploying some services 
 
 ## Usage
 
-#### Initialization 
+### Initialization 
 
 Clone the repository:
 ```bash
@@ -50,7 +50,7 @@ or if you use keys:
 0.0.0.0 ansible_ssh_user=root ansible_ssh_private_key_file=~/.ssh/<private key>
 ```
 
-#### Playbook
+### Playbook
 
 For the convenience of using roles and tasks, a playbook ```site.yaml```. All roles and most tasks are tagged and can be invoked with the ```-t``` flag.
 
