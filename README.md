@@ -28,7 +28,7 @@ Algorithm of using roles for the deployment of services requires some explanatio
         - [ufw](#ufw)
         - [docker](#docker)
 
-## Initialization
+## Getting Started
 
 Clone the repository:
 
@@ -49,7 +49,7 @@ Add your hosts in inventory:
 0.0.0.0 ansible_ssh_user=root ansible_ssh_private_key_file=~/.ssh/<private key>
 ```
 
-## Services ports
+## Services Ports
 
 | Service   | Ports      |
 | --------- | ---------- |
