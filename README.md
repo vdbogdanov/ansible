@@ -61,7 +61,7 @@ Add your hosts in inventory:
 
 For the convenience of using roles and tasks, a playbook ```site.yaml```. All roles and most tasks are tagged and can be invoked with the ```-t``` flag.
 
-### openvpn
+### [openvpn](roles/openvpn/)
 
 Deploy OpenVPN and generate .ovpn config on desktop.
 
@@ -73,7 +73,7 @@ Start deployment:
 ansible-playbook site.yaml -t 'openvpn, ovpn_setup, ovpn_gencerts, ovpn_genprofile'
 ```
 
-### nginx
+### [nginx](roles/nginx/)
 
 Deploy Nginx as reverse proxy with HTTPS protocol. In my case for gitlab, pgadmin and vcenter docker containers, but you can change ```/roles/nginx/files/templates/nginx.conf.template``` according to your needs. Unlike previous nginx services, reverse proxy requires a domain name and certificates to establish an HTTPS connection (you can modify the nginx configuration to use the HTTP protocol).
 
@@ -93,7 +93,7 @@ Start deployment:
 ansible-playbook site.yaml -t 'nginx, nginx_reverse_proxy'
 ```
 
-### cmdbuild
+### [cmdbuild](roles/cmdbuild/)
 
 Deploy CMDBuild base on ```http://<ip>:8081``` where ```username = cmdbuild``` and ```password = cmdbuild```.
 
@@ -103,7 +103,7 @@ Start deployment:
 ansible-playbook site.yaml -t 'cmdbuild, cmdbuild_setup'
 ```
 
-### gitlab
+### [gitlab](roles/gitlab/)
 
 Deploy Gitlab base on ```http://<ip>:8082``` where ```username = root```, for get ```password``` you should run this command in terminal:
 
@@ -117,7 +117,7 @@ Start deployment:
 ansible-playbook site.yaml -t 'gitlab, gitlab_setup'
 ```
 
-### pgadmin
+### [pgadmin](roles/pgadmin/)
 
 Deploy pgAdmin on ```http://<ip>:8083``` where ```username = admin@github.com``` and ```password = admin```.
 
@@ -127,7 +127,7 @@ Start deployment:
 ansible-playbook site.yaml -t 'pgadmin, pgadmin_setup'
 ```
 
-### vcenter
+### [vcenter](roles/vcenter/)
 
 Deploy vcsim - vcenter simulator in docker container ```nimmis/vcsim```. If you want use it via HTTP, you should use official container. You can test connection on ```https://<ip>:8084/about```. 
 
