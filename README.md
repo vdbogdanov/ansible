@@ -2,13 +2,11 @@
 
 This repository contains ansible roles for automating server configuring using some tools and service deployment in docker containers by docker compose.
 
-```
 Algorithm of using roles for the deployment of services requires some explanation:
 1. Configuring the server to use the service (for example, installing the necessary packages)
 2. Uploading the docker compose file to the server and running it
 3. Docker containers with services work on ports according to the table below (you can change it in docker compose file of service)
 4. If you to want more secure passwords in services, you can change defaults for role or create env vars with identical names as in defaults.
-```
 
 ## Table of Contents
 
