@@ -158,4 +158,4 @@ ansible-playbook site.yaml -t 'vcenter, vcenter_setup'
 
 `docker_install` – Install docker
 
-`docker_iptables_off (not tagged)` – Сlosing docker access to iptables via its configuration file
+`docker_iptables_off (not tagged)` – Сlosing docker access to iptables via configuration file
