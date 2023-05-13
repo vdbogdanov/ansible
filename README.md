@@ -158,4 +158,4 @@ ansible-playbook site.yaml -t 'vcenter, vcenter_setup'
 
 `docker_install` – Install docker
 
-`docker_iptables_off (not tagged)` – Closes docker access to iptables (if you configure a firewall via ufw and do not close docker access to iptables, docker containers will ignore the specified rules)
+`docker_iptables_off (not tagged)` – Сlosing docker access to iptables via its configuration file
