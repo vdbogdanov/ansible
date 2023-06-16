@@ -8,7 +8,7 @@
     - export PGADMIN_PASSWORD="{{ pgadmin_password }}"
 
 - name: Create service directories
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: ~/pgadmin
     state: directory
 
