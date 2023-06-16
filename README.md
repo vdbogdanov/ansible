@@ -155,7 +155,7 @@ ansible-playbook site.yaml -t 'vcenter, vcenter_setup'
 `ufw_secure_setup (not tagged)` – Allow only from specific ip address
 
 ### [docker](roles/docker/)
-
+ 
 `docker_install` – Install docker
 
 `docker_iptables_off (not tagged)` – Сlosing docker access to iptables via configuration file

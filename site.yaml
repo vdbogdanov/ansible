@@ -1,53 +1,37 @@
 ---
 - hosts: all
   become: yes
+  roles:
+    - apt
+    - ssh
+    - ufw
+    - docker
+
+- hosts:
+    - dev_servers
+    - cmdbuild_servers
+  become: yes
   tasks:
-    - name: Include apt role
-      include_role:
-        name: apt
-      tags: apt
-
-    - name: Include ssh role
-      include_role:
-        name: ssh
-      tags: ssh
-
-    - name: Include ufw role
-      include_role:
-        name: ufw
-      tags: ufw
-
-    - name: Include docker role
+    - name: Include server role
       include_role:
         name: docker
-      tags: docker
+        tasks_from: docker_iptables_off
 
-    - name: Include openvpn role
-      include_role:
-        name: openvpn
-      tags: openvpn
+- hosts: vpn_servers
+  become: yes
+  roles:
+    - openvpn
 
-    - name: Include nginx role
-      include_role:
-        name: nginx
-      tags: nginx
+- hosts: dev_servers
+  become: yes
+  roles:
+    - gitlab
+    - pgadmin
+    - vcenter
+    - nginx
 
-    - name: Include gitlab role
-      include_role:
-        name: gitlab
-      tags: gitlab
-
-    - name: Include pgadmin role
-      include_role:
-        name: pgadmin
-      tags: pgadmin
-
-    - name: Include cmdbuild role
-      include_role:
-        name: cmdbuild
-      tags: cmdbuild
+- hosts: cmdbuild_servers
+  become: yes
+  roles:
+    - cmdbuild
     
-    - name: Include vcenter role
-      include_role:
-        name: vcenter
-      tags: vcenter

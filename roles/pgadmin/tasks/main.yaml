@@ -1,4 +1,26 @@
 ---
-- name: Import pgadmin_setup task
-  import_tasks: pgadmin_setup.yaml
-  tags: pgadmin_setup
+- name: Add env vars to .bashrc
+  ansible.builtin.lineinfile:
+    dest: ~/.bashrc
+    line: "{{ item }}"
+  loop:
+    - export PGADMIN_EMAIL="{{ pgadmin_email }}"
+    - export PGADMIN_PASSWORD="{{ pgadmin_password }}"
+
+- name: Create service directories
+  ansible.builtin.lineinfile:
+    path: ~/pgadmin
+    state: directory
+
+- name: Copy docker compose file
+  ansible.builtin.lineinfile:
+    src: files/compose.yaml
+    dest: ~/pgadmin/compose.yaml
+
+- name: Start docker compose file
+  ansible.builtin.command: docker compose up -d
+  environment:
+    PGADMIN_EMAIL: "{{ pgadmin_email }}"
+    PGADMIN_PASSWORD: "{{ pgadmin_password }}"
+  args:
+    chdir: ~/pgadmin

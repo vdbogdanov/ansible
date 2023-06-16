@@ -1,6 +1,6 @@
 ---
 - name: Add openvpn clent
-  expect:
+  ansible.builtin.expect:
     command: docker compose run --rm openvpn easyrsa build-client-full {{ client_name }}
     responses:
       Enter PEM pass phrase: "{{ client_pass }}"
@@ -8,14 +8,14 @@
       Enter pass phrase for /etc/openvpn/pki/private/ca.key: "{{ pki_certificate_pass }}"
     chdir: ~/openvpn
     timeout: 300
-  
+
 - name: Generate openvpn client profile
-  shell: docker compose run --rm openvpn ovpn_getclient {{ client_name }} > {{ client_name }}.ovpn
+  ansible.builtin.shell: docker compose run --rm openvpn ovpn_getclient {{ client_name }} > {{ client_name }}.ovpn
   args:
     chdir: ~/openvpn/profiles
 
 - name: Copy openvpn client profile
-  fetch:
+  ansible.builtin.fetch:
     src: ~/openvpn/profiles/{{ client_name }}.ovpn
     dest: ~/Desktop/ovpn_profiles/{{ inventory_hostname }}/{{ client_name }}.ovpn
     flat: true

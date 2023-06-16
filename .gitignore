@@ -4,9 +4,7 @@
 .LSOverride
 
 # Ansible files
-ansible.cfg
 inventory.ini
-playbooks/
 
 # Icon must end with two \r
 Icon

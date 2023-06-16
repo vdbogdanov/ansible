@@ -1,4 +1,22 @@
 ---
-- name: Import gitlab_setup task
-  import_tasks: gitlab_setup.yaml
-  tags: gitlab_setup
+- name: Add env vars to .bashrc
+  ansible.builtin.lineinfile:
+    dest: ~/.bashrc
+    line: export DOMAIN="{{ domain }}"
+
+- name: Create service directories
+  ansible.builtin.file:
+    path: ~/gitlab
+    state: directory
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: files/compose.yaml
+    dest: ~/gitlab/compose.yaml
+
+- name: Start docker compose file
+  ansible.builtin.command: docker compose up -d
+  environment:
+    DOMAIN: "{{ domain }}"
+  args:
+    chdir: ~/gitlab

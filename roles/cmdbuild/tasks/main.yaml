@@ -1,4 +1,22 @@
 ---
-- name: Import cmdbuild_setup task
-  import_tasks: cmdbuild_setup.yaml
-  tags: cmdbuild_setup
+- name: Add env vars to .bashrc
+  ansible.builtin.lineinfile:
+    dest: ~/.bashrc
+    line: export POSTGRES_PASSWORD="{{ postgres_password }}"
+
+- name: Create service directories
+  ansible.builtin.file:
+    path: ~/cmdbuild
+    state: directory
+
+- name: Copy docker compose file
+  ansible.builtin.copy:
+    src: files/compose.yaml
+    dest: ~/cmdbuild/compose.yaml
+
+- name: Start docker compose file
+  ansible.builtin.command: docker compose up -d
+  environment:
+    POSTGRES_PASSWORD: "{{ postgres_password }}"
+  args:
+    chdir: ~/cmdbuild

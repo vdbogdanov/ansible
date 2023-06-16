@@ -1,6 +1,6 @@
 ---
 - name: Create service directories
-  file:
+  ansible.builtin.file:
     path: "{{ item }}"
     state: directory
   loop:
@@ -8,16 +8,16 @@
     - ~/openvpn/profiles
 
 - name: Copy docker compose file
-  copy:
+  ansible.builtin.copy:
     src: files/compose.yaml
     dest: ~/openvpn/compose.yaml
 
 - name: Start docker compose file
-  command: docker compose up -d
+  ansible.builtin.command: docker compose up -d
   args:
     chdir: ~/openvpn
 
 - name: Generate openvpn configuration
-  command: docker compose run --rm openvpn ovpn_genconfig -u udp://{{ inventory_hostname }}:1194
+  ansible.builtin.command: docker compose run --rm openvpn ovpn_genconfig -u udp://{{ inventory_hostname }}:1194
   args:
     chdir: ~/openvpn

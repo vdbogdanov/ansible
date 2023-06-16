@@ -1,6 +1,6 @@
 ---
 - name: Generate openvpn pki certificates
-  expect:
+  ansible.builtin.expect:
     command: docker compose run --rm openvpn ovpn_initpki
     responses:
       Common Name: "Easy-RSA CA"

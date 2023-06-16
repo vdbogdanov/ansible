@@ -1,4 +1,0 @@
----
-- name: Import ufw_common_setup task
-  import_tasks: ufw_common_setup.yaml
-  tags: ufw_common_setup

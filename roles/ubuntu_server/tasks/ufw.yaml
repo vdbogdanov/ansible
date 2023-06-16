@@ -1,20 +1,20 @@
 ---
 - name: Install ufw
-  apt:
+  ansible.builtin.apt:
     name: ufw
     state: latest
 
 - name: Reset ufw
-  ufw:
+  community.general.ufw:
     state: reset
 
 - name: Common setup ufw
-  command: "ufw {{ item }}"
+  ansible.builtin.command: "ufw {{ item }}"
   loop:
     - default deny incoming
     - default allow outgoing
     - allow 22
 
 - name: Enable ufw
-  ufw:
+  community.general.ufw:
     state: enabled
