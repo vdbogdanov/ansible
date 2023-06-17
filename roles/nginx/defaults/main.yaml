@@ -1,5 +1,9 @@
 ---
-domain: "{{ lookup('env', 'DOMAIN') }}"
-domain_certificate_path: "{{ lookup('env', 'DOMAIN_CERTIFICATE_PATH') }}"
-domain_privatekey_path: "{{ lookup('env', 'DOMAIN_PRIVATEKEY_PATH') }}"
-nginx_config_template_path: files/templates/nginx.conf.template
+nginx:
+  work_dir: "~/nginx"
+  domain: "{{ lookup('env', 'DOMAIN') }}"
+  config_template: "files/templates/nginx.conf.template"
+
+path:
+  certificate: "{{ lookup('env', 'DOMAIN_CERTIFICATE_PATH') }}"
+  privatekey: "{{ lookup('env', 'DOMAIN_PRIVATEKEY_PATH') }}"

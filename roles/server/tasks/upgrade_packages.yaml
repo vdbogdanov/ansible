@@ -1,0 +1,14 @@
+---
+- name: Apt update & upgrade
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+    update_cache: true
+  when: ansible_facts['ansible_pkg_mgr'] == "apt"
+
+- name: Yum update & upgrade
+  ansible.builtin.yum:
+    name: "*"
+    state: latest
+    update_cache: true
+  when: ansible_facts['ansible_pkg_mgr'] == "yum"

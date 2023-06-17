@@ -8,5 +8,5 @@
       Re-Enter New CA Key Passphrase: "{{ pki_certificate_pass }}"
       Enter pass phrase for /etc/openvpn/pki/private/ca.key: "{{ pki_certificate_pass }}"
       Confirm removal: "yes"
-    chdir: ~/openvpn
+    chdir: "{{ ovpn.work_dir }}"
     timeout: 300

@@ -1,2 +1,6 @@
 ---
-postgres_password: "{{ lookup('env', 'POSTGRES_PASSWORD', default='admin') }}"
+cmdbuild:
+  work_dir: "~/cmdbuild"
+
+postgres:
+  password: "{{ lookup('env', 'POSTGRES_PASSWORD', default='admin') }}"

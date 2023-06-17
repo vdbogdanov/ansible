@@ -4,23 +4,23 @@
     dest: ~/.bashrc
     line: "{{ item }}"
   loop:
-    - export PGADMIN_EMAIL="{{ pgadmin_email }}"
-    - export PGADMIN_PASSWORD="{{ pgadmin_password }}"
+    - export PGADMIN_EMAIL="{{ pgadmin.email }}"
+    - export PGADMIN_PASSWORD="{{ pgadmin.password }}"
 
 - name: Create service directories
   lineinfile:
-    path: ~/pgadmin
+    path: "{{ pgadmin.work_dir }}"
     state: directory
 
 - name: Copy docker compose file
-  ansible.builtin.lineinfile:
+  ansible.builtin.copy:
     src: files/compose.yaml
-    dest: ~/pgadmin/compose.yaml
+    dest: "{{ pgadmin.work_dir }}/compose.yaml"
 
 - name: Start docker compose file
   ansible.builtin.command: docker compose up -d
   environment:
-    PGADMIN_EMAIL: "{{ pgadmin_email }}"
-    PGADMIN_PASSWORD: "{{ pgadmin_password }}"
+    PGADMIN_EMAIL: "{{ pgadmin.email }}"
+    PGADMIN_PASSWORD: "{{ pgadmin.password }}"
   args:
-    chdir: ~/pgadmin
+    chdir: "{{ pgadmin.work_dir }}"

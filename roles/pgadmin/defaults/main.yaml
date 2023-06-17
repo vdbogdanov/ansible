@@ -1,3 +1,5 @@
 ---
-pgadmin_email: "{{ lookup('env', 'PGADMIN_EMAIL', default='admin@github.com') }}"
-pgadmin_password: "{{ lookup('env', 'PGADMIN_PASSWORD', default='admin') }}"
+pgadmin:
+  work_dir: "~/pgadmin"
+  email: "{{ lookup('env', 'PGADMIN_EMAIL', default='admin@github.com') }}"
+  password: "{{ lookup('env', 'PGADMIN_PASSWORD', default='admin') }}"

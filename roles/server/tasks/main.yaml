@@ -1,10 +1,10 @@
 ---
-- name: Setup Ubuntu server
-  when: ansible_facts['os_family'] == 'Debian'
+- name: Configure (Ubuntu | CentOS) server
+  notify: Restart server
   block:
-    - name: Update & Upgrade apt packages
-      ansible.builtin.import_tasks: apt.yaml
-      tags: apt
+    - name: Update & Upgrade packages
+      ansible.builtin.import_tasks: upgrade_packages.yaml
+      tags: upgrade_packages
 
     - name: SSH Setup
       ansible.builtin.import_tasks: ssh.yaml

@@ -2,7 +2,14 @@
 - name: Install ufw
   ansible.builtin.apt:
     name: ufw
-    state: latest
+    state: present
+  when: ansible_facts['ansible_pkg_mgr'] == "apt"
+
+- name: Install ufw
+  ansible.builtin.yum:
+    name: ufw
+    state: present
+  when: ansible_facts['ansible_pkg_mgr'] == "yum"
 
 - name: Reset ufw
   community.general.ufw:
@@ -13,7 +20,7 @@
   loop:
     - default deny incoming
     - default allow outgoing
-    - allow 22
+    - allow "{{ ssh.port }}"
 
 - name: Enable ufw
   community.general.ufw:

@@ -2,40 +2,40 @@
 - name: Add env vars to .bashrc
   ansible.builtin.lineinfile:
     dest: ~/.bashrc
-    line: export DOMAIN="{{ domain }}"
+    line: export DOMAIN="{{ nginx.domain }}"
 
 - name: Create service directories
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
   loop:
-    - ~/nginx
-    - ~/nginx/templates
+    - "{{ nginx.work_dir }}"
+    - "{{ nginx.work_dir }}/templates"
     - /etc/letsencrypt
 
 - name: Copy ssl certificate
   ansible.builtin.copy:
-    src: "{{ domain_certificate_path }}"
+    src: "{{ path.certificate }}"
     dest: /etc/letsencrypt/fullchain.pem
 
 - name: Copy ssl private key certificate
   ansible.builtin.copy:
-    src: "{{ domain_privatekey_path }}"
+    src: "{{ path.privatekey }}"
     dest: /etc/letsencrypt/privkey.pem
 
 - name: Copy nginx config
   ansible.builtin.copy:
-    src: "{{ nginx_config_template_path }}"
-    dest: ~/nginx/templates/nginx.conf.template
+    src: "{{ nginx.config_template }}"
+    dest: "{{ nginx.work_dir }}/templates/nginx.conf.template"
 
 - name: Copy docker compose file
   ansible.builtin.copy:
     src: files/compose.yaml
-    dest: ~/nginx/compose.yaml
+    dest: "{{ nginx.work_dir }}/compose.yaml"
 
 - name: Start docker compose file
   ansible.builtin.command: docker compose up -d
   environment:
-    DOMAIN: "{{ domain }}"
+    DOMAIN: "{{ nginx.domain }}"
   args:
-    chdir: ~/nginx
+    chdir: "{{ nginx.work_dir }}"

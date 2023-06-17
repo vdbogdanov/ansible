@@ -1,2 +1,4 @@
 ---
-domain: "{{ lookup('env', 'DOMAIN', default='example.com') }}"
+gitlab:
+  work_dir: "~/gitlab"
+  domain: "{{ lookup('env', 'DOMAIN', default='example.com') }}"
