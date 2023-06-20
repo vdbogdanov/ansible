@@ -1,5 +1,18 @@
 ---
-- hosts: all
-  become: yes
+- name: Common config
+  hosts: all
+  become: true
   roles:
     - server
+
+- name: Dev server config
+  hosts: development
+  become: true
+  roles:
+    - security
+
+- name: VPN server config
+  hosts: vpn
+  become: true
+  roles:
+    - openvpn

@@ -1,6 +1,6 @@
 ---
 pgadmin:
   work_dir: "~/pgadmin"
-  port: "8083"
+  port: "{{ lookup('env', 'PGADMIN_PORT', default='8083') }}"
   email: "{{ lookup('env', 'PGADMIN_EMAIL', default='admin@github.com') }}"
   password: "{{ lookup('env', 'PGADMIN_PASSWORD', default='admin') }}"

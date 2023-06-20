@@ -12,8 +12,8 @@
 - name: Start docker compose file
   ansible.builtin.command: docker compose up -d
   environment:
-    GITLAB_HOSTNAME: "{{ gitlab.hostname }}"
-    GITLAB_WEB_PORT: "{{ gitlab.web_port }}"
+    DOMAIN: "{{ gitlab.domain }}"
+    GITLAB_PORT: "{{ gitlab.port }}"
     GITLAB_SSH_PORT: "{{ gitlab.ssh_port }}"
   args:
     chdir: "{{ gitlab.work_dir }}"

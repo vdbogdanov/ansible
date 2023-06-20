@@ -1,0 +1,16 @@
+---
+- name: dfv
+  notify: server:Restart server
+  block:
+    - name: Create directory
+      ansible.builtin.file:
+        path: /etc/docker
+        state: directory
+
+    - name: Turn off iptables in docker config
+      ansible.builtin.copy:
+        dest: /etc/docker/daemon.json
+        content: |
+          {
+            "iptables": false
+          }

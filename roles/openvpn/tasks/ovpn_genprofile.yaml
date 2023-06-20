@@ -17,5 +17,5 @@
 - name: Copy openvpn client profile
   ansible.builtin.fetch:
     src: "{{ ovpn.work_dir }}/profiles/{{ ovpn.client_name }}.ovpn"
-    dest: ~/Desktop/ovpn_profiles/{{ inventory_hostname }}/{{ ovpn.client_name }}.ovpn
+    dest: "{{ ovpn.ready_config }}/{{ inventory_hostname }}_{{ ovpn.client_name }}.ovpn"
     flat: true

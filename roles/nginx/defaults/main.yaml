@@ -3,7 +3,5 @@ nginx:
   work_dir: "~/nginx"
   domain: "{{ lookup('env', 'DOMAIN') }}"
   config_template: "files/templates/nginx.conf.template"
-
-path:
   certificate: "{{ lookup('env', 'DOMAIN_CERTIFICATE_PATH') }}"
   privatekey: "{{ lookup('env', 'DOMAIN_PRIVATEKEY_PATH') }}"

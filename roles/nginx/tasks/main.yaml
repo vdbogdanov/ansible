@@ -10,12 +10,12 @@
 
 - name: Copy ssl certificate
   ansible.builtin.copy:
-    src: "{{ path.certificate }}"
+    src: "{{ nginx.certificate }}"
     dest: /etc/letsencrypt/fullchain.pem
 
 - name: Copy ssl private key certificate
   ansible.builtin.copy:
-    src: "{{ path.privatekey }}"
+    src: "{{ nginx.privatekey }}"
     dest: /etc/letsencrypt/privkey.pem
 
 - name: Copy nginx config

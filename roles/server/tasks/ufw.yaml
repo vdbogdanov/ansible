@@ -3,13 +3,13 @@
   ansible.builtin.apt:
     name: ufw
     state: present
-  when: ansible_facts['ansible_pkg_mgr'] == "apt"
+  when: ansible_facts['pkg_mgr'] == "apt"
 
 - name: Install ufw
   ansible.builtin.yum:
     name: ufw
     state: present
-  when: ansible_facts['ansible_pkg_mgr'] == "yum"
+  when: ansible_facts['pkg_mgr'] == "yum"
 
 - name: Reset ufw
   community.general.ufw:

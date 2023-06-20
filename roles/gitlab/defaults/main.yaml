@@ -1,6 +1,6 @@
 ---
 gitlab:
   work_dir: "~/gitlab"
-  web_port: "8082"
-  ssh_port: "2224"
-  hostname: "{{ lookup('env', 'GITLAB_HOSTNAME', default='gitlab.example.com') }}"
+  domain: "{{ lookup('env', 'DOMAIN', default='example.com') }}"
+  port: "{{ lookup('env', 'GITLAB_PORT', default='80') }}"
+  ssh_port: "{{ lookup('env', 'GITLAB_SSH_PORT', default='2224') }}"
