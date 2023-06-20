@@ -1,9 +1,4 @@
 ---
-- name: Add env vars to .bashrc
-  ansible.builtin.lineinfile:
-    dest: ~/.bashrc
-    line: export POSTGRES_PASSWORD="{{ postgres.password }}"
-
 - name: Create service directories
   ansible.builtin.file:
     path: "{{ cmdbuild.work_dir }}"
@@ -17,6 +12,8 @@
 - name: Start docker compose file
   ansible.builtin.command: docker compose up -d
   environment:
+    CMDBUILD_PORT: "{{ cmdbuild.port }}"
+    POSTGRES_PORT: "{{ postgres.port }}"
     POSTGRES_PASSWORD: "{{ postgres.password }}"
   args:
     chdir: "{{ cmdbuild.work_dir }}"

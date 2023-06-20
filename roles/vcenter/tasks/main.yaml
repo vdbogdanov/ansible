@@ -11,5 +11,7 @@
 
 - name: Start docker compose file
   ansible.builtin.command: docker compose up -d
+  environment:
+    VCENTER_PORT: "{{ vcenter.port }}"
   args:
     chdir: "{{ vcenter.work_dir }}"

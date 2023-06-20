@@ -7,6 +7,6 @@ services:
     restart: always
     container_name: openvpn
     ports:
-      - "1194:1194/udp"
+      - "${OVPN_PORT}:1194/udp"
     volumes:
       - /srv/openvpn:/etc/openvpn

@@ -1,12 +1,4 @@
 ---
-- name: Add env vars to .bashrc
-  ansible.builtin.lineinfile:
-    dest: ~/.bashrc
-    line: "{{ item }}"
-  loop:
-    - export PGADMIN_EMAIL="{{ pgadmin.email }}"
-    - export PGADMIN_PASSWORD="{{ pgadmin.password }}"
-
 - name: Create service directories
   lineinfile:
     path: "{{ pgadmin.work_dir }}"
@@ -22,5 +14,6 @@
   environment:
     PGADMIN_EMAIL: "{{ pgadmin.email }}"
     PGADMIN_PASSWORD: "{{ pgadmin.password }}"
+    PGADMIN_PORT: "{{ pgadmin.port }}"
   args:
     chdir: "{{ pgadmin.work_dir }}"

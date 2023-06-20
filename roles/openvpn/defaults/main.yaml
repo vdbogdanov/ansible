@@ -1,6 +1,7 @@
 ---
 ovpn:
   work_dir: "~/openvpn"
+  port: "1194"
   pki_certificate_pass: "{{ lookup('env', 'OVPN_PKI_CERTIFICATE_PASS', default='admin') }}"
   client_name: "{{ lookup('env', 'OVPN_CLIENT_NAME', default='client') }}"
   client_pass: "{{ lookup('env', 'OVPN_CLIENT_PASS', default='admin') }}"

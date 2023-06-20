@@ -1,6 +1,8 @@
 ---
 cmdbuild:
   work_dir: "~/cmdbuild"
+  port: "8081"
 
 postgres:
+  port: "5432"
   password: "{{ lookup('env', 'POSTGRES_PASSWORD', default='admin') }}"

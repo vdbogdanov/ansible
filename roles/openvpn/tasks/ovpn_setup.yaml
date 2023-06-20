@@ -18,6 +18,8 @@
     chdir: "{{ ovpn.work_dir }}"
 
 - name: Generate openvpn configuration
-  ansible.builtin.command: docker compose run --rm openvpn ovpn_genconfig -u udp://{{ inventory_hostname }}:1194
+  ansible.builtin.command: docker compose run --rm openvpn ovpn_genconfig -u udp://{{ inventory_hostname }}:{{ ovpn.port }}
+  environment:
+    OVPN_PORT: "{{ ovpn.port }}"
   args:
     chdir: "{{ ovpn.work_dir }}"

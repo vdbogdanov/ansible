@@ -1,9 +1,4 @@
 ---
-- name: Add env vars to .bashrc
-  ansible.builtin.lineinfile:
-    dest: ~/.bashrc
-    line: export DOMAIN="{{ gitlab.domain }}"
-
 - name: Create service directories
   ansible.builtin.file:
     path: "{{ gitlab.work_dir }}"
@@ -17,6 +12,8 @@
 - name: Start docker compose file
   ansible.builtin.command: docker compose up -d
   environment:
-    DOMAIN: "{{ domain }}"
+    GITLAB_HOSTNAME: "{{ gitlab.hostname }}"
+    GITLAB_WEB_PORT: "{{ gitlab.web_port }}"
+    GITLAB_SSH_PORT: "{{ gitlab.ssh_port }}"
   args:
     chdir: "{{ gitlab.work_dir }}"

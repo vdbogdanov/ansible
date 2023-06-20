@@ -1,9 +1,4 @@
 ---
-- name: Add env vars to .bashrc
-  ansible.builtin.lineinfile:
-    dest: ~/.bashrc
-    line: export DOMAIN="{{ nginx.domain }}"
-
 - name: Create service directories
   ansible.builtin.file:
     path: "{{ item }}"
