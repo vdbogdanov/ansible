@@ -1,3 +1,3 @@
-[submodule "roles/compose_collection/files"]
-	path = roles/compose_collection/files
+[submodule "roles/compose_config/files/compose-collection"]
+	path = roles/compose_config/files/compose-collection
 	url = git@github.com:vdbogdanov/compose-collection.git
