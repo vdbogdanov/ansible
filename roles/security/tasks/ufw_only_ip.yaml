@@ -8,7 +8,7 @@
   loop:
     - default deny incoming
     - default allow outgoing
-    - allow from {{ security.server }}
+    - allow from {{ jump_server }}
 
 - name: Enable ufw
   community.general.ufw:

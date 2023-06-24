@@ -1,9 +1,9 @@
 ---
-# - name: Common config
-#   hosts: all
-#   become: true
-#   roles:
-#     - server
+- name: Common config
+  hosts: all
+  become: true
+  roles:
+    - server
 
 - name: Dev server config
   hosts: development
@@ -15,4 +15,7 @@
   hosts: vpn
   become: true
   roles:
-    - security
+    - openvpn
+  tasks:
+    - name: Open ovpn port
+      ansible.builtin.command: "ufw allow 1194"

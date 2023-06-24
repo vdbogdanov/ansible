@@ -1,0 +1,8 @@
+---
+ovpn:
+  work_dir: "~/openvpn"
+  port: "1194"
+  client_name: "client"
+  client_pass: "admin"
+  pki_certificate_pass: "admin"
+  ready_config: "~/Desktop/ovpn_config"

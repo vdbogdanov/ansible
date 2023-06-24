@@ -1,16 +1,19 @@
 ---
-- name: Turn off iptables
-  notify: Restart server
-  block:
-    - name: Create directory
-      ansible.builtin.file:
-        path: /etc/docker
-        state: directory
+- name: Create directory
+  ansible.builtin.file:
+    path: /etc/docker
+    state: directory
 
-    - name: Change docker config
-      ansible.builtin.copy:
-        dest: /etc/docker/daemon.json
-        content: |
-          {
-            "iptables": false
-          }
+- name: Change docker config
+  ansible.builtin.copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "iptables": false
+      }
+
+- name: Reload docker service
+  ansible.builtin.service:
+    name: docker
+    state: reloaded
+    enabled: true

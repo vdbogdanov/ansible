@@ -1,4 +1,0 @@
----
-vcenter:
-  work_dir: "~/vcenter"
-  port: "{{ lookup('env', 'VCENTER_PORT', default='80') }}"

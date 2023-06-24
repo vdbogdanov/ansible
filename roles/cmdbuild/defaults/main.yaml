@@ -1,8 +1,0 @@
----
-cmdbuild:
-  work_dir: "~/cmdbuild"
-  port: "{{ lookup('env', 'CMDBUILD_PORT', default='80') }}"
-
-postgres:
-  port: "5432"
-  password: "postgres"

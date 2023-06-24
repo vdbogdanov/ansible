@@ -1,6 +1,0 @@
----
-gitlab:
-  work_dir: "~/gitlab"
-  domain: "{{ lookup('env', 'DOMAIN', default='example.com') }}"
-  port: "{{ lookup('env', 'GITLAB_PORT', default='80') }}"
-  ssh_port: "{{ lookup('env', 'GITLAB_SSH_PORT', default='2224') }}"

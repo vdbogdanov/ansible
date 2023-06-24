@@ -1,2 +1,1 @@
-security:
-  server: "{{ lookup('env', 'SECURITY_SERVER', default='0.0.0.0') }}"
+jump_server: "{{ lookup('env', 'JUMP_SERVER', default='0.0.0.0') }}"
