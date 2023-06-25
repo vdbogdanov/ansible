@@ -20,7 +20,7 @@ git clone https://github.com/dallings/ansible-roles.git
 cd ansible-roles
 ```
 
-Initiate available [compose files folder](roles/compose_config/files/compose-collection/) as submodule, and pull the latest versions:
+Initiate available [compose files folder](vdbogdanov/compose-collection/) as submodule, and pull the latest versions:
 
 ```bash
 git submodule init
@@ -51,7 +51,7 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 ## Roles
 
-### [server](roles/server)
+### [server](roles/server/)
 
 | Task      	   | Description      		             |
 | ---------------- | ----------------------------------- |
