@@ -70,7 +70,7 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 ### [compose_config](roles/compose_config)
 
-With this role you can configure and start some services by Docker Compose. If you want use my compose-collection, you should copy it on server:
+If you want use my compose-collection, you should copy it on server:
 
 ```bash
 ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
