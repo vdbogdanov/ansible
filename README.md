@@ -81,6 +81,8 @@ Allow only 22 port.
 
 Install Docker.
 
+---
+
 ### [secure](roles/secure)
 
 #### docker_iptables
@@ -91,13 +93,11 @@ Install Docker.
 
 Configuring the ufw firewall to connect only from a specific ip.
 
-### [compose_config](roles/compose_config)
-
 ---
 
-Role for deploy some services with compose files.
+### [compose_config](roles/compose_config)
 
-If you want use my compose-collection, you should copy it on server:
+With this role you can configure and start some services by Docker Compose. If you want use my compose-collection, you should copy it on server:
 
 ```bash
 ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
