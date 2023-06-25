@@ -1,0 +1,15 @@
+---
+- name: Change env vars
+  ansible.builtin.lineinfile:
+    path: "{{ pgadmin.work_dir }}/.env"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - { regexp: "^PGADMIN_PORT", line: "PGADMIN_PORT={{ pgadmin.port }}"}
+    - { regexp: "^PGADMIN_EMAIL", line: "PGADMIN_EMAIL={{ pgadmin.email }}"}
+    - { regexp: "^PGADMIN_PASSWORD", line: "PGADMIN_PASSWORD={{ pgadmin.password }}"}
+
+- name: Start docker compose file
+  ansible.builtin.command: docker compose up -d
+  args:
+    chdir: "{{ pgadmin.work_dir }}"

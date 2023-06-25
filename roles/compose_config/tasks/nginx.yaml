@@ -1,0 +1,26 @@
+---
+- name: Copy ssl certificate
+  ansible.builtin.copy:
+    src: "{{ nginx.certificate }}"
+    dest: /etc/letsencrypt/fullchain.pem
+
+- name: Copy ssl private key certificate
+  ansible.builtin.copy:
+    src: "{{ nginx.privatekey }}"
+    dest: /etc/letsencrypt/privkey.pem
+
+- name: Copy nginx config
+  ansible.builtin.copy:
+    src: "{{ nginx.config_template }}"
+    dest: "{{ nginx.work_dir }}/templates/nginx.conf.template"
+
+- name: Change env vars
+  ansible.builtin.lineinfile:
+    path: "{{ nginx.work_dir }}/.env"
+    regexp: "^NGINX_DOMAIN"
+    line: "NGINX_DOMAIN={{ nginx.domain }}"
+
+- name: Start docker compose file
+  ansible.builtin.command: docker compose up -d
+  args:
+    chdir: "{{ nginx.work_dir }}"

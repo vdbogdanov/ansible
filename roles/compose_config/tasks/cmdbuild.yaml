@@ -1,0 +1,15 @@
+---
+- name: Change env vars
+  ansible.builtin.lineinfile:
+    path: "{{ cmdbuild.work_dir }}/.env"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - { regexp: "^CMDBUILD_PORT", line: "CMDBUILD_PORT={{ cmdbuild.port }}"}
+    - { regexp: "^POSTGRES_PORT", line: "POSTGRES_PORT={{ postgres.port }}"}
+    - { regexp: "^POSTGRES_PASSWORD", line: "POSTGRES_PASSWORD={{ postgres.password }}"}
+
+- name: Start docker compose file
+  ansible.builtin.command: docker compose up -d
+  args:
+    chdir: "{{ cmdbuild.work_dir }}"

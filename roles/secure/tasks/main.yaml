@@ -4,5 +4,5 @@
   tags: docker_iptables
 
 - name: Allow connection only from one ip
-  ansible.builtin.import_tasks: ufw_only_ip.yaml
-  tags: ufw_only_ip
+  ansible.builtin.import_tasks: ip_restriction.yaml
+  tags: ip_restriction

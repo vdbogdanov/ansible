@@ -1,8 +1,38 @@
 ---
 ovpn:
-  work_dir: "~/openvpn"
+  work_dir: "~/services/openvpn"
   port: "1194"
   client_name: "client"
   client_pass: "admin"
   pki_certificate_pass: "admin"
   ready_config: "~/Desktop/ovpn_config"
+
+nginx:
+  work_dir: "~/services/nginx"
+  domain: "example.com"
+  certificate: "/etc/letsencrypt/fullchain.pem"
+  privatekey: "/etc/letsencrypt/privkey.pem"
+
+gitlab:
+  work_dir: "~/services/gitlab"
+  port: "80"
+  ssh_port: "2224"
+  domain: "example.com"
+
+cmdbuild:
+  work_dir: "~/services/cmdbuild"
+  port: "80"
+
+postgres:
+  port: "5432"
+  password: "postgres"
+
+pgadmin:
+  work_dir: "~/services/pgadmin"
+  port: "80"
+  email: "admin@github.com"
+  password: "admin"
+
+vcenter:
+  work_dir: "~/services/vcenter"
+  port: "80"

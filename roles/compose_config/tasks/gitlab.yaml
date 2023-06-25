@@ -1,0 +1,15 @@
+---
+- name: Change env vars
+  ansible.builtin.lineinfile:
+    path: "{{ gitlab.work_dir }}/.env"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - { regexp: "^GITLAB_DOMAIN", line: "GITLAB_DOMAIN={{ gitlab.domain }}"}
+    - { regexp: "^GITLAB_PORT", line: "GITLAB_PORT={{ gitlab.port }}"}
+    - { regexp: "^GITLAB_SSH_PORT", line: "GITLAB_SSH_PORT={{ gitlab.ssh_port }}"}
+
+- name: Start docker compose file
+  ansible.builtin.command: docker compose up -d
+  args:
+    chdir: "{{ gitlab.work_dir }}"

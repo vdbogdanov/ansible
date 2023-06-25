@@ -1,21 +1,19 @@
 ---
-- name: Common config
+- name: site
   hosts: all
   become: true
-  roles:
-    - server
-
-- name: Dev server config
-  hosts: development
-  become: true
-  roles:
-    - security
-
-- name: VPN server config
-  hosts: vpn
-  become: true
-  roles:
-    - openvpn
   tasks:
-    - name: Open ovpn port
-      ansible.builtin.command: "ufw allow 1194"
+    - name: Configure (Ubuntu | CentOS) server
+      ansible.builtin.include_role:
+        name: server
+      tags: server
+
+    - name: Boost server security
+      ansible.builtin.include_role:
+        name: secure
+      tags: secure
+
+    - name: Deploy services with docker compose
+      ansible.builtin.include_role:
+        name: compose_config
+      tags: compose_config

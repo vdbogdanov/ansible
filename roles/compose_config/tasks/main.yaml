@@ -1,0 +1,30 @@
+- name: Copy compose-collection folder
+  ansible.posix.synchronize:
+    src: files/compose-collection/services
+    dest: ~/
+    recursive: true
+  tags: copy_compose_collection
+
+- name: OpenVPN Setup
+  ansible.builtin.import_tasks: openvpn.yaml
+  tags: openvpn
+  
+- name: Nginx Setup
+  ansible.builtin.import_tasks: nginx.yaml
+  tags: nginx
+
+- name: Gitlab Setup
+  ansible.builtin.import_tasks: gitlab.yaml
+  tags: gitlab
+
+- name: CMDBuild Setup
+  ansible.builtin.import_tasks: cmdbuild.yaml
+  tags: cmdbuild
+
+- name: pgAdmin Setup
+  ansible.builtin.import_tasks: pgadmin.yaml
+  tags: pgadmin
+
+- name: vCenter Setup
+  ansible.builtin.import_tasks: vcenter.yaml
+  tags: vcenter
