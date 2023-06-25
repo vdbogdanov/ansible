@@ -8,20 +8,8 @@ This repository contains ansible roles for automating server configuring using s
 - [Usage](#usage)
 - [Roles](#roles)
 	- [server](#server)
-		- [upgrade\_packages](#upgrade_packages)
-		- [ssh](#ssh)
-		- [ufw](#ufw)
-		- [docker](#docker)
 	- [secure](#secure)
-		- [docker\_iptables](#docker_iptables)
-		- [ip\_restriction](#ip_restriction)
 	- [compose\_config](#compose_config)
-		- [openvpn](#openvpn)
-		- [nginx](#nginx)
-		- [gitlab](#gitlab)
-		- [cmdbuild](#cmdbuild)
-		- [pgadmin](#pgadmin)
-		- [vcenter](#vcenter)
 
 ## Getting Started
 
@@ -65,35 +53,20 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 ### [server](roles/server)
 
-#### upgrade_packages
+| Task      	   | Description      		             |
+| ---------------- | ----------------------------------- |
+| upgrade_packages | Update & Upgrade packages.          |
+| ssh    	       | Disable ssh PasswordAuthentication. |
+| ufw  	           | Allow only 22 port.                 |
+| docker           | Install Docker.                     |
 
-Update & Upgrade packages.
-
-#### ssh
-
-Disable ssh PasswordAuthentication.
-
-#### ufw
-
-Allow only 22 port.
-
-#### docker
-
-Install Docker.
-
----
 
 ### [secure](roles/secure)
 
-#### docker_iptables
-
-Сlosing docker access to iptables via configuration file, because ufw can't close access to server ports for docker.
-
-#### ip_restriction
-
-Configuring the ufw firewall to connect only from a specific ip.
-
----
+| Task      	   | Description      		                                                                                              |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------- |
+| docker_iptables  | Сlosing docker access to iptables via configuration file, because ufw can't close access to server ports for docker. |
+| ip_restriction   | Configuring the ufw firewall to connect only from a specific ip.                                                     |
 
 ### [compose_config](roles/compose_config)
 
@@ -105,30 +78,11 @@ ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
 
 To change the standard configuration of services, you can use [role defaults](roles/compose_config/defaults/main.yaml).
 
-#### openvpn
-
-Deploy OpenVPN and generate .ovpn config on your machine.
-
-#### nginx
-
-Deploy Nginx as reverse proxy with HTTPS protocol. In my case for gitlab, pgadmin and vcenter docker containers, but you can change `/roles/nginx/files/templates/nginx.conf.template` according to your needs. Unlike previous nginx services, reverse proxy requires a domain name and certificates to establish an HTTPS connection (you can modify the nginx configuration to use the HTTP protocol).
-
-#### gitlab
-
-Deploy Gitlab service where `username = root`, for get `password` you should run this command in terminal:
-
-```bash
-docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
-```
-
-#### cmdbuild
-
-Deploy CMDBuild base on `http://<ip>:<port>/cmdbuild` where `username = cmdbuild` and `password = cmdbuild`.
-
-#### pgadmin
-
-Deploy pgAdmin service.
-
-#### vcenter
-
-Deploy vcsim - vcenter simulator in docker container `nimmis/vcsim`. If you want use it via HTTP, you should use official container. You can test connection on `https://<ip>:<port>/about`.
+| Task     | Description      		                                   |
+| -------- | --------------------------------------------------------- |
+| openvpn  | Deploy OpenVPN and generate .ovpn config on your machine. |
+| nginx    | Deploy Nginx as reverse proxy with HTTPS protocol.        |
+| gitlab   | Deploy Gitlab service.                                    |
+| cmdbuild | Deploy CMDBuild base                                      |
+| pgadmin  | Deploy pgAdmin service.                                   |
+| vcenter  | Deploy vcsim - vcenter simulator.                         |
