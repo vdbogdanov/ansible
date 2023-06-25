@@ -70,14 +70,6 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 ### [compose_config](roles/compose_config)
 
-If you want use my compose-collection, you should copy it on server:
-
-```bash
-ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
-```
-
-To change the standard configuration of services, you can use [role defaults](roles/compose_config/defaults/main.yaml).
-
 | Task     | Description      		                                   |
 | -------- | --------------------------------------------------------- |
 | openvpn  | Deploy OpenVPN and generate .ovpn config on your machine. |
@@ -86,3 +78,11 @@ To change the standard configuration of services, you can use [role defaults](ro
 | cmdbuild | Deploy CMDBuild base                                      |
 | pgadmin  | Deploy pgAdmin service.                                   |
 | vcenter  | Deploy vcsim - vcenter simulator.                         |
+
+Firstly, you should copy compose-collection on server:
+
+```bash
+ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
+```
+
+To change the standard configuration of services, you can use [role defaults](roles/compose_config/defaults/main.yaml).
