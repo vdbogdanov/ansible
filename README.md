@@ -53,12 +53,12 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 ### [server](roles/server)
 
-| Task      	   | Description      		             |
-| ---------------- | ----------------------------------- |
-| upgrade_packages | Update & Upgrade packages.          |
-| ssh    	       | Disable ssh PasswordAuthentication. |
-| ufw  	           | Allow only 22 port.                 |
-| docker           | Install Docker.                     |
+| Task      	   | Description      		                                                                                              |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------- |
+| upgrade_packages | Update & Upgrade packages.                                                                                           |
+| ssh    	       | Disable ssh PasswordAuthentication.                                                                                  |
+| ufw  	           | Allow only 22 port.                                                                                                  |
+| docker           | Install Docker.                                                                                                      |
 
 
 ### [secure](roles/secure)
