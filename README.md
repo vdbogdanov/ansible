@@ -20,7 +20,7 @@ git clone https://github.com/dallings/ansible-roles.git
 cd ansible-roles
 ```
 
-Initiate available [compose files folder](vdbogdanov/compose-collection/) as submodule, and pull the latest versions:
+Initiate [compose-collection repo](vdbogdanov/compose-collection/) as submodule, and pull the latest versions:
 
 ```bash
 git submodule init
@@ -61,14 +61,16 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 | docker           | Install Docker.                     |
 
 
-### [secure](roles/secure)
+### [secure](roles/secure/)
 
 | Task      	   | Description      		                                                                                              |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
 | docker_iptables  | Сlosing docker access to iptables via configuration file, because ufw can't close access to server ports for docker. |
 | ip_restriction   | Configuring the ufw firewall to connect only from a specific ip.                                                     |
 
-### [compose_config](roles/compose_config)
+### [compose_config](roles/compose_config/)
+
+**Before using this role, I highly recommend that you familiarize yourself with README.md the [compose-collection](vdbogdanov/compose-collection/) repository**
 
 | Task     | Description      		                                   |
 | -------- | --------------------------------------------------------- |
