@@ -2,7 +2,7 @@
 - name: Configure (Ubuntu | CentOS) server
   notify: Restart server
   block:
-    - name: Update & Upgrade packages
+    - name: Update & upgrade packages
       ansible.builtin.import_tasks: upgrade_packages.yaml
       tags: upgrade_packages
 

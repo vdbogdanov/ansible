@@ -15,21 +15,21 @@ This repository contains ansible roles for automating server configuring using s
 
 Clone the repository:
 
-```bash
+```
 git clone https://github.com/dallings/ansible-roles.git
 cd ansible-roles
 ```
 
 Initiate [compose-collection repository](https://github.com/vdbogdanov/compose-collection) as submodule, and pull the latest versions:
 
-```bash
+```
 git submodule init
 git submodule update --recursive --remote
 ```
 
 Rename inventory_example.ini -> inventory.ini:
 
-```bash
+```
 mv inventory_example.ini inventory.ini
 ```
 
@@ -45,7 +45,7 @@ For the convenience of using roles and tasks there is playbook `site.yaml`. All 
 
 Example:
 
-```bash
+```
 ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 ```
 
@@ -55,10 +55,10 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 | Task      	   | Description      		             |
 | ---------------- | ----------------------------------- |
-| upgrade_packages | Update & Upgrade packages.          |
+| upgrade_packages | Update & upgrade packages.          |
 | ssh    	       | Disable ssh PasswordAuthentication. |
 | ufw  	           | Allow only 22 port.                 |
-| docker           | Install Docker.                     |
+| docker           | Install docker.                     |
 
 
 ### [secure](roles/secure/)
@@ -83,7 +83,7 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 For using this role, you should copy compose-collection on your server:
 
-```bash
+```
 ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
 ```
 
