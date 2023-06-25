@@ -53,13 +53,17 @@ server1 ansible_ssh_host=<your_ip>
 
 ## Usage
 
-For the convenience of using roles and tasks, a playbook `site.yaml`. All roles and most tasks are tagged and can be invoked with the `-t` flag.
+For the convenience of using roles and tasks there is playbook `site.yaml`. All roles and most tasks are tagged and can be invoked with the `-t` flag.
+
+Example:
+
+```bash
+ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
+```
 
 ## Roles
 
 ### [server](roles/server)
-
-Role for basic server configuration.
 
 #### upgrade_packages
 
@@ -79,8 +83,6 @@ Install Docker.
 
 ### [secure](roles/secure)
 
-Role to improve server network security.
-
 #### docker_iptables
 
 Сlosing docker access to iptables via configuration file, because ufw can't close access to server ports for docker.
@@ -91,18 +93,14 @@ Configuring the ufw firewall to connect only from a specific ip.
 
 ### [compose_config](roles/compose_config)
 
+---
+
 Role for deploy some services with compose files.
 
 If you want use my compose-collection, you should copy it on server:
 
 ```bash
 ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
-```
-
-Run service:
-
-```bash
-ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn ..."
 ```
 
 To change the standard configuration of services, you can use [role defaults](roles/compose_config/defaults/main.yaml).
