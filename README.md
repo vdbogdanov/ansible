@@ -20,7 +20,7 @@ git clone https://github.com/dallings/ansible-roles.git
 cd ansible-roles
 ```
 
-Initiate [compose-collection repo](vdbogdanov/compose-collection/) as submodule, and pull the latest versions:
+Initiate [compose-collection repository](https://github.com/vdbogdanov/compose-collection) as submodule, and pull the latest versions:
 
 ```bash
 git submodule init
@@ -70,7 +70,7 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 ### [compose_config](roles/compose_config/)
 
-**Before using this role, I highly recommend that you familiarize yourself with README.md the [compose-collection](roles/compose_config/files/compose-collection/) repository**
+**Before using this role, I highly recommend to read README.md in [compose-collection repository](https://github.com/vdbogdanov/compose-collection).**
 
 | Task     | Description      		                                   |
 | -------- | --------------------------------------------------------- |
