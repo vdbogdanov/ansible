@@ -9,6 +9,8 @@ ovpn:
 
 nginx:
   work_dir: "~/services/nginx"
+  http_port: "80"
+  https_port: "443"
   domain: "example.com"
   certificate: "/etc/letsencrypt/fullchain.pem"
   privatekey: "/etc/letsencrypt/privkey.pem"
