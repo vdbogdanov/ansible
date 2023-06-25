@@ -1,6 +1,6 @@
 # ansible-roles
 
-This repository contains ansible roles for automating server configuring using some tools and service deployment in docker containers by docker compose.
+This repository contains ansible roles for automating server configuring and service deployment by Docker Compose.
 
 ## Table of Contents
 
@@ -46,7 +46,7 @@ For the convenience of using roles and tasks there is playbook `site.yaml`. All 
 Example:
 
 ```
-ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
+ansible-playbook site.yaml -t "server, upgrade_packages, ..."
 ```
 
 ## Roles
