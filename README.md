@@ -85,4 +85,4 @@ Firstly, you should copy compose-collection on server:
 ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
 ```
 
-To change the standard configuration of services, you can use [compose_config/role/defaults/main.yaml](roles/compose_config/defaults/main.yaml).
+To change the standard configuration of services, you can use [roles/compose_config/defaults/main.yaml](roles/compose_config/defaults/main.yaml).
