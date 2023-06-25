@@ -70,7 +70,7 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 
 ### [compose_config](roles/compose_config/)
 
-**Before using this role, I highly recommend to read README.md in [compose-collection repository](https://github.com/vdbogdanov/compose-collection).**
+**Before using this role, I highly recommend to read README.md in [compose-collection repository](https://github.com/vdbogdanov/compose-collection)!**
 
 | Task     | Description      		                                   |
 | -------- | --------------------------------------------------------- |
