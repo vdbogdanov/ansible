@@ -11,6 +11,7 @@
     - name: Boost server security
       ansible.builtin.include_role:
         name: secure
+        defaults_from: services_config.yaml
       tags: secure
 
     - name: Deploy services with docker compose

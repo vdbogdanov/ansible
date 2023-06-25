@@ -1,15 +1,17 @@
 # General
-.vscode
 .DS_Store
 .AppleDouble
 .LSOverride
 
-# Ansible files
-inventory.ini
-.env
+# Personal
+.vscode
+ansible.cfg
+inventories/*
+!inventories/example/
 
 # Icon must end with two \r
 Icon
+
 
 # Thumbnails
 ._*
