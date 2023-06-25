@@ -79,7 +79,7 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 | pgadmin  | Deploy pgAdmin service.                                   |
 | vcenter  | Deploy vcsim - vcenter simulator.                         |
 
-Firstly, you should copy compose-collection on server:
+For using this role, you should copy compose-collection on your server:
 
 ```bash
 ansible-playbook site.yaml -t "compose_config, copy_compose_collection"
