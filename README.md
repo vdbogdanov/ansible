@@ -60,7 +60,6 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 | ufw  	           | Allow only 22 port.                 |
 | docker           | Install Docker.                     |
 
----
 
 ### [secure](roles/secure)
 
@@ -68,8 +67,6 @@ ansible-playbook site.yaml -t "compose_config, pgadmin, openvpn, ..."
 | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
 | docker_iptables  | Сlosing docker access to iptables via configuration file, because ufw can't close access to server ports for docker. |
 | ip_restriction   | Configuring the ufw firewall to connect only from a specific ip.                                                     |
-
----
 
 ### [compose_config](roles/compose_config)
 
