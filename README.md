@@ -46,7 +46,7 @@ For the convenience of using roles and tasks there is playbook `site.yaml`. All 
 Example:
 
 ```
-ansible-playbook site.yaml -t "server, upgrade_packages, ..."
+ansible-playbook -i inventories/example site.yaml -t "server, upgrade_packages, ..."
 ```
 
 ## Roles
