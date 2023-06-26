@@ -30,6 +30,11 @@
 - name: Crete openvpn client profile
   tags: openvpn_newclient
   block:
+    - name: Create service directories
+      ansible.builtin.file:
+        path: "{{ ovpn.work_dir }}/profiles"
+        state: directory
+
     - name: Generate openvpn clent
       ansible.builtin.expect:
         command: docker compose run --rm openvpn easyrsa build-client-full {{ ovpn.client_name }}
