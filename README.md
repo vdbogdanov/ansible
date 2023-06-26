@@ -36,7 +36,7 @@ mv inventory_example.ini inventory.ini
 Change ip addresses to yours in inventory:
 
 ```
-server1 ansible_ssh_host=<your_ip>
+server1 ansible_ssh_host=<server1_ip>
 ```
 
 ## Usage
