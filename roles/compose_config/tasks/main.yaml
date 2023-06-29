@@ -1,8 +1,5 @@
 - name: Copy compose-collection folder
-  ansible.posix.synchronize:
-    src: files/compose-collection/services
-    dest: ~/
-    recursive: true
+  ansible.builtin.import_tasks: copy_compose_collection.yaml
   tags: copy_compose_collection
 
 - name: OpenVPN Setup

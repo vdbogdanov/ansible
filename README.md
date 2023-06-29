@@ -8,7 +8,7 @@ This repository contains ansible roles for automating server configuring and ser
 - [Usage](#usage)
 - [Roles](#roles)
 	- [server](#server)
-	- [secure](#secure)
+	- [security](#security)
 	- [compose\_config](#compose_config)
 
 ## Getting Started
@@ -61,7 +61,7 @@ ansible-playbook -i inventories/example site.yaml -t "server, upgrade_packages, 
 | docker           | Install docker.                     |
 
 
-### [secure](roles/secure/)
+### [security](roles/security/)
 
 | Task      	   | Description      		                                                                                              |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------- |

@@ -1,0 +1,6 @@
+---
+- name: Copy compose-collection folder
+  ansible.posix.synchronize:
+    src: files/compose-collection/services
+    dest: ~/
+    recursive: true
