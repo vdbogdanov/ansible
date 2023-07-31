@@ -1,4 +1,4 @@
 ---
 - name: Restart server
-  ansible.builtin.reboot:
+  ansible.windows.win_reboot:
     reboot_timeout: 3600

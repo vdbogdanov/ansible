@@ -1,5 +1,5 @@
 ---
-- name: site
+- name: Site
   hosts: all
   become: true
   tasks:
@@ -10,9 +10,8 @@
 
     - name: Boost server security
       ansible.builtin.include_role:
-        name: secure
-        defaults_from: services_config.yaml
-      tags: secure
+        name: security
+      tags: security
 
     - name: Deploy services with docker compose
       ansible.builtin.include_role:
