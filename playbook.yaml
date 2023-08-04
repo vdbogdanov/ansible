@@ -8,8 +8,11 @@
 - name: dev group setup
   hosts: dev
   become: true
-  roles:
-    - security
+  tasks:
+    - name: Deploy docker services
+      ansible.builtin.import_role:
+        name: security
+        tasks_from: ip_restriction
 
 - name: vpn group setup
   hosts: vpn
