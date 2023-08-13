@@ -7,6 +7,12 @@ ovpn:
   pki_certificate_pass: "admin"
   ready_config: "~/Desktop/ovpn_config"
 
+nginx_pm:
+  work_dir: "~/services/nginx_pm"
+  port: "81"
+  http_port: "80"
+  https_port: "443"
+
 nginx:
   work_dir: "~/services/nginx"
   http_port: "80"

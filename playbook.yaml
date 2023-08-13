@@ -4,24 +4,3 @@
   become: true
   roles:
     - server
-
-- name: dev group setup
-  hosts: dev
-  become: true
-  tasks:
-    - name: Deploy docker services
-      ansible.builtin.import_role:
-        name: security
-        tasks_from: ip_restriction
-
-- name: vpn group setup
-  hosts: vpn
-  become: true
-  tasks:
-    - name: Deploy docker services
-      ansible.builtin.include_role:
-        name: compose_config
-        tasks_from: "{{ item }}"
-      loop:
-        - copy_compose_collection
-        - openvpn
