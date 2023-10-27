@@ -1,6 +1,11 @@
 ---
-- name: Site
-  hosts: all
+- hosts: all
   become: true
   tasks:
-    - name:
+    - name: Include ansible_compose role
+      include_role: ansible_compose
+      tags: compose
+
+    - name: Include ansible_server role
+      include_role: ansible_server
+      tags: server
