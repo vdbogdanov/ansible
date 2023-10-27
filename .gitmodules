@@ -4,6 +4,3 @@
 [submodule "roles/ansible_server"]
 	path = roles/ansible_server
 	url = git@github.com:vdbogdanov/ansible_server.git
-[submodule "roles/test"]
-	path = roles/test
-	url = git@github.com:vdbogdanov/simple-flask-app.git
