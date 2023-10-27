@@ -1,3 +1,7 @@
-[submodule "roles/compose_config/files/compose-collection"]
-	path = roles/compose_config/files/compose-collection
-	url = git@github.com:vdbogdanov/compose-collection.git
+[submodule "roles/ansible_compose"]
+	path = roles/ansible_compose
+	url = git@github.com:vdbogdanov/ansible_compose.git
+
+[submodule "roles/ansible_server"]
+	path = roles/ansible_server
+	url = git@github.com:vdbogdanov/ansible_server.git
