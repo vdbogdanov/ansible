@@ -4,9 +4,14 @@ This repository contains ansible roles for automating server configuring and ser
 
 ## Table of Contents
 
+- [Roles](#roles)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Roles](#roles)
+
+## Roles
+
+1. [ansible_compose](https://github.com/vdbogdanov/ansible_compose)
+2. [ansible_server](https://github.com/vdbogdanov/ansible_server)
 
 ## Getting Started
 
@@ -45,8 +50,3 @@ Example:
 ```
 ansible-playbook -i inventories/example site.yaml -t "server, upgrade_packages, ..."
 ```
-
-## Roles
-
-1. [ansible_server](roles/ansible_server/)
-2. [ansible_compose](roles/ansible_compose/)
