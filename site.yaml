@@ -3,17 +3,4 @@
   hosts: all
   become: true
   tasks:
-    - name: Configure (Ubuntu | CentOS) server
-      ansible.builtin.include_role:
-        name: server
-      tags: server
-
-    - name: Boost server security
-      ansible.builtin.include_role:
-        name: security
-      tags: security
-
-    - name: Deploy services with docker compose
-      ansible.builtin.include_role:
-        name: compose_config
-      tags: compose_config
+    - name:

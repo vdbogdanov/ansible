@@ -1,8 +1,0 @@
----
-- name: Disable iptables for docker
-  ansible.builtin.import_tasks: docker_iptables.yaml
-  tags: docker_iptables
-
-- name: Allow connection only from one ip
-  ansible.builtin.import_tasks: ip_restriction.yaml
-  tags: ip_restriction

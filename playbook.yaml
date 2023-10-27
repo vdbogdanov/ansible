@@ -1,6 +1,0 @@
----
-- name: Basic server setup
-  hosts: all
-  become: true
-  roles:
-    - server

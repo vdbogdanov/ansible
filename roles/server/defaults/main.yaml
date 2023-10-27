@@ -1,9 +1,0 @@
----
-ssh:
-  port: "22"
-
-docker:
-  ubuntu_repo: "deb https://download.docker.com/linux/ubuntu focal stable"
-  ubuntu_key: "https://download.docker.com/linux/ubuntu/gpg"
-  centos_repo: "https://download.docker.com/linux/centos/$releasever/$basearch/stable"
-  centos_key: "https://download.docker.com/linux/centos/gpg"
