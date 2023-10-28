@@ -1,9 +1,0 @@
-[submodule "personal/roles/ansible_compose"]
-	path = personal/roles/ansible_compose
-	url = git@github.com:vdbogdanov/ansible_compose.git
-[submodule "personal/roles/ansible_server"]
-	path = personal/roles/ansible_server
-	url = git@github.com:vdbogdanov/ansible_server.git
-[submodule "enterprise/ansible_termidesk"]
-	path = enterprise/ansible_termidesk
-	url = git@github.com:vdbogdanov/ansible_termidesk.git
