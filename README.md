@@ -6,14 +6,14 @@ This repository contains ansible roles for automating server configuring and ser
 
 - [Roles](#roles)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
 
 ## Roles
 
-1. [Personal](personal/)
-   * [ansible_compose](https://github.com/vdbogdanov/ansible_compose)
-   * [ansible_server](https://github.com/vdbogdanov/ansible_server)
-2. 
+1. [Personal](Personal/)
+   - [ansible_compose](https://github.com/vdbogdanov/ansible_compose)
+   - [ansible_server](https://github.com/vdbogdanov/ansible_server)
+2. [Enterprise](Enterprise/)
+   - [ansible_termidesk](https://github.com/vdbogdanov/ansible_termidesk)
 
 ## Getting Started
 
