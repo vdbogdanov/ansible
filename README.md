@@ -10,8 +10,10 @@ This repository contains ansible roles for automating server configuring and ser
 
 ## Roles
 
-1. [ansible_compose](https://github.com/vdbogdanov/ansible_compose)
-2. [ansible_server](https://github.com/vdbogdanov/ansible_server)
+1. [Personal](personal/)
+   * [ansible_compose](https://github.com/vdbogdanov/ansible_compose)
+   * [ansible_server](https://github.com/vdbogdanov/ansible_server)
+2. 
 
 ## Getting Started
 
@@ -27,26 +29,4 @@ Initiate [compose-collection repository](https://github.com/vdbogdanov/compose-c
 ```
 git submodule init
 git submodule update --recursive --remote
-```
-
-Rename inventory_example.ini -> inventory.ini:
-
-```
-mv inventory_example.ini inventory.ini
-```
-
-Change ip addresses to yours in inventory:
-
-```
-server1 ansible_ssh_host=<server1_ip>
-```
-
-## Usage
-
-For the convenience of using roles and tasks there is playbook `site.yaml`. All roles and most tasks are tagged and can be invoked with the `-t` flag.
-
-Example:
-
-```
-ansible-playbook -i inventories/example site.yaml -t "server, upgrade_packages, ..."
 ```
