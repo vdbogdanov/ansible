@@ -1,0 +1,8 @@
+[dev]
+server1 ansible_ssh_host=0.0.0.0
+
+[vpn]
+server2 ansible_ssh_host=0.0.0.0
+
+[web_site]
+server3 ansible_ssh_host=0.0.0.0
