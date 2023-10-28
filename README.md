@@ -20,7 +20,7 @@ This repository contains ansible roles for automating server configuring and ser
 Clone the repository:
 
 ```
-git clone https://github.com/dallings/ansible-roles.git
+git clone https://github.com/vdbogdanov/ansible.git
 cd ansible-roles
 ```
 
