@@ -4,6 +4,6 @@
 [submodule "Personal/roles/ansible_server"]
 	path = Personal/roles/ansible_server
 	url = git@github.com:vdbogdanov/ansible_server.git
-[submodule "Enterprise/roles/ansible_termidesk"]
-	path = Enterprise/roles/ansible_termidesk
+[submodule "Enterprise/ansible_termidesk"]
+	path = Enterprise/ansible_termidesk
 	url = git@github.com:vdbogdanov/ansible_termidesk.git
