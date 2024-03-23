@@ -4,14 +4,10 @@ This repository contains ansible roles for automating server configuring and ser
 
 ## Table of Contents
 
-- [Automations](#automations)
 - [Getting Started](#getting-started)
-
-## Automations
-
-1. [Enterprise](Enterprise/)
+- [Enterprise](Enterprise/)
    - [ansible_termidesk](https://github.com/vdbogdanov/ansible_termidesk)
-2. [Personal](Personal/)
+- [Personal](Personal/)
    - [ansible_server](https://github.com/vdbogdanov/ansible_server)
 
 
