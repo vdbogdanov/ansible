@@ -4,16 +4,16 @@ This repository contains ansible roles for automating server configuring and ser
 
 ## Table of Contents
 
-- [Roles](#roles)
+- [Automations](#automations)
 - [Getting Started](#getting-started)
 
-## Roles
+## Automations
 
-1. [Personal](Personal/)
-   - [ansible_compose](https://github.com/vdbogdanov/ansible_compose)
-   - [ansible_server](https://github.com/vdbogdanov/ansible_server)
-2. [Enterprise](Enterprise/)
+1. [Enterprise](Enterprise/)
    - [ansible_termidesk](https://github.com/vdbogdanov/ansible_termidesk)
+2. [Personal](Personal/)
+   - [ansible_server](https://github.com/vdbogdanov/ansible_server)
+
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ git clone https://github.com/vdbogdanov/ansible.git
 cd ansible-roles
 ```
 
-Initiate [compose-collection repository](https://github.com/vdbogdanov/compose-collection) as submodule, and pull the latest versions:
+Initiate submodules, and pull the latest versions:
 
 ```
 git submodule init
