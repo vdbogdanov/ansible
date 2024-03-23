@@ -17,7 +17,7 @@ Clone the repository:
 
 ```
 git clone https://github.com/vdbogdanov/ansible.git
-cd ansible-roles
+cd ansible
 ```
 
 Initiate submodules, and pull the latest versions:
