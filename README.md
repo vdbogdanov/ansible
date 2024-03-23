@@ -1,6 +1,6 @@
 # ansible-roles
 
-This repository contains ansible roles for automating server configuring and service deployment by Docker Compose.
+This repository contains ansible automations for server configuring and service deployment.
 
 ## Table of Contents
 
