@@ -1,0 +1,6 @@
+[submodule "automations/ansible_server"]
+	path = automations/ansible_server
+	url = git@github.com:vdbogdanov/ansible_server.git
+[submodule "automations/ansible_termidesk"]
+	path = automations/ansible_termidesk
+	url = git@github.com:vdbogdanov/ansible_termidesk.git
