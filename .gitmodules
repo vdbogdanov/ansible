@@ -1,6 +1,0 @@
-[submodule "Personal/ansible_server"]
-	path = Personal/ansible_server
-	url = git@github.com:vdbogdanov/ansible_server.git
-[submodule "Enterprise/ansible_termidesk"]
-	path = Enterprise/ansible_termidesk
-	url = git@github.com:vdbogdanov/ansible_termidesk.git
